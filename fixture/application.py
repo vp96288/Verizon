@@ -1,16 +1,17 @@
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
 
 
 class Application:
     def __init__(self):
-        self.wd = WebDriver()
-        self.wd.implicitly_wait(5)
+        desired_cap = {'platform': "Mac OS X 10.9", 'browserName': "chrome", 'version': "31",}
+        self.wd = webdriver.Remote(command_executor='http://vp96288:72f45665-3f6c-4f4a-8b3d-4fc7fc05bb20@ondemand.saucelabs.com:80/wd/hub', desired_capabilities=desired_cap)
+        self.wd.implicitly_wait(60)
 
 
     def submit_request_consultation_form(self):
         wd = self.wd
         wd.find_element_by_name("send").click()
-        wd.find_element_by_xpath("//div[@id='wrapper']//h1[.='Thank you']").click()
+        assert len(wd.find_elements_by_xpath("//div[@id='wrapper']//h1[.='Thank you']")) > 0
 
     def change_field_value(self, field_name, text):
         wd = self.wd
