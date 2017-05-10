@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-import pytest
 from data.for_contact_form import testdata
+import pytest
 
+@pytest.mark.usefixtures()
 @pytest.mark.parametrize("personal_info", testdata)
 def test_test_contact_us(app, personal_info):
     app.open_home_page()

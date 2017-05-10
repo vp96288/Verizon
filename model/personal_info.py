@@ -9,3 +9,6 @@ class Personal_info:
         self.phone = phone
         self.company = company
         self.zipcode = zipcode
+
+
+

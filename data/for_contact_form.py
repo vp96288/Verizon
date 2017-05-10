@@ -6,3 +6,5 @@ testdata = [
     Personal_info(firstname="Jake", lastname="Paul", email="jakepaul@fakeemail.bb", phone="3330000000", company="Paulcompany",
                                      zipcode="91605")
 ]
+
+
